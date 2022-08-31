@@ -1,13 +1,15 @@
 import React from "react";
 import logo from "./images/logo1.jpg";
+import CartWidget from "./CartWidget";
+import cartIcon from "./images/cart.png";
 
 const NavBar = () => {
     return (
         <div>
             <div className="container-fluid text-center bg-dark text-white">
                 COFFEE HOUSE
-            </div>
-            <ul className="nav justify-content-center">
+            </div>         
+            <ul className="nav justify-content-center borde_navegacion">
                 <li className="nav-item">
                 <a className="nav-link" aria-current="page" href="#"><img src={logo} width="100"/></a>
                 </li>
@@ -31,6 +33,11 @@ const NavBar = () => {
                 </li>
                 <li className="nav-item vertical">
                 <a className="nav-link color_cafe" href="#">EXPENDEDORAS</a>
+                </li>
+                <li className="nav-item vertical">
+
+                <CartWidget icono={cartIcon} />
+                
                 </li>
             </ul>
         </div>

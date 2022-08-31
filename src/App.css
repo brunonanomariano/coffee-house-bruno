@@ -6,3 +6,18 @@
 .vertical{
   align-self: center;
 }
+
+.tamanio_icono{
+  width: 30px;
+  height: 30px;
+}
+
+.gradiente_marron{
+  background: rgb(208,161,79);
+  background: radial-gradient(circle, rgba(208,161,79,1) 0%, rgba(38,24,0,1) 100%);
+}
+
+.borde_navegacion{
+  border-bottom: 1px solid grey;
+  border-top: 1px solid grey;
+}
