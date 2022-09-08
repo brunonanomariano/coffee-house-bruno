@@ -8,7 +8,7 @@ function App() {
       
       <NavBar />
       
-      <ItemListContainer mensaje="Proximamente catologo de productos" />
+      <ItemListContainer />
     
     </div>
   );
