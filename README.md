@@ -8,3 +8,6 @@
 
 ## Desafio 4
     Catalogo con map
+
+## Desafio 5
+    Detalle del producto

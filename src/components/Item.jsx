@@ -3,9 +3,6 @@ import { Component } from "react";
 
 const Item = ( {title, price, pictureUrl} ) => {
 
-    const imagen = pictureUrl;
-    console.log(imagen);
-
     return(
         <div className="card">
             <img src={pictureUrl} className="card-img-top " alt={title} />
