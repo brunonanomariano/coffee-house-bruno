@@ -1,13 +1,6 @@
 # Coffee House
 
-## Desafio 2:
-    Creacion de NavBar
+## Primera Preentrega del proyecto final
 
-## Desafio 3:
-    Contador con boton
-
-## Desafio 4
-    Catalogo con map
-
-## Desafio 5
-    Detalle del producto
+La idea del ecommerce es venta de productos relacionados a infusiones.
+En el navbar se dividieron las distintas secciones las cuales se pueden acceder a traves de rutas, las cuales redirigen a renderizar el ItemListContainer de acuerdo al matcheo de categorias que reciben por parametro en la ruta. Al clickear en cada card se renderiza el ItemDetailContainer mediante el ruteo que envia por parametro el ID del producto que debe ser renderizado 
