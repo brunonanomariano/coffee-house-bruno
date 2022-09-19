@@ -1,13 +1,7 @@
 import { useState } from "react";
 import { Component } from "react";
 
-function ItemCount( { stock, initial, onAdd }  ){
-
-    const [cantidad, setCantidad ] = useState(initial);
-
-    function onAdd( valor ){
-        setCantidad (cantidad + valor);
-    }
+function ItemCount( { stock, initial, onAdd, cantidad }  ){
 
     return(
         <div>

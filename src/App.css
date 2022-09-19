@@ -28,3 +28,11 @@
   padding-left: 25px;
   padding-right: 25px;
 }
+
+.posicion_loading{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+}
