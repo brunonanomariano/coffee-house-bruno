@@ -2,6 +2,8 @@ import React from "react";
 import { Component, useEffect, useState } from "react";
 import ItemCount from "./ItemCount";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../contexts/CartContext";
 
 const ItemDetail = ( {productoSeleccionado} ) => {
 
@@ -11,10 +13,10 @@ const ItemDetail = ( {productoSeleccionado} ) => {
     const descripcion = productoSeleccionado.description;
     const stockDisponible = productoSeleccionado.stock;
 
-    const [cantidad, setCantidad ] = useState(1);
+    const { addItem, cart } = useContext(CartContext);
 
     function onAdd( quantityToAdd ){
-        setCantidad (cantidad + quantityToAdd );
+        addItem(productoSeleccionado, quantityToAdd);
     }
 
     return ( 
@@ -27,8 +29,7 @@ const ItemDetail = ( {productoSeleccionado} ) => {
                             <h4 className="card-title text-center">{titulo}</h4>
                             <p  className="card-text text-center">{descripcion}</p>
                             <p  className="card-text text-center h4"><b>${precio}</b></p>
-                            <p  className="card-text text-center"><ItemCount stock={stockDisponible} initial={1} onAdd={onAdd} cantidad={cantidad} /></p>
-                            <p className="card-text text-center"><Link to={'/cart'}><input className="btn btn-dark" type="button" value="Finalizar Compra" /></Link></p>
+                            <div  className="card-text text-center"><ItemCount stock={stockDisponible} initial={1} onAdd={onAdd} /></div>
                         </div>
                     </div>
                 </div>

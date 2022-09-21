@@ -18,3 +18,6 @@
 ## Desafio 7
     Sincronizar Counter
 
+## Desafio 8
+    Cart Context
+
