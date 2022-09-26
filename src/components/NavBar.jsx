@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const NavBar = () => {
 
     return (
-        <div>
+        <div className="mb-2">
             <div className="container-fluid text-center bg-dark text-white">
                 COFFEE HOUSE
             </div>         

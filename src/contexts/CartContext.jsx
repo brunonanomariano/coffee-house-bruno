@@ -45,8 +45,17 @@ const CartProvider = ( {children} ) => {
     //Muestro en consola el cart cada vez que se actualiza para chequear
     useEffect(() => {console.log(cart)},[cart]);
 
+    //Calcula el total de la compra sumando el precio de todos los producto del carrito
+    const totalCompra = () => {
+        return cart.reduce( (acumulador, producto) => acumulador + producto.quantity * producto.price, 0 );
+    }
 
-    return <CartContext.Provider value={ {cart, isInCart, addItem, removeItem, clear } }>
+    //Calcula el total de productos dentro del carrito sumando las cantidades de cada item
+    const totalProductos = () => {
+        return cart.reduce( (acumulador, item) => acumulador + item.quantity, 0 );
+    }
+
+    return <CartContext.Provider value={ {cart, isInCart, addItem, removeItem, clear, totalCompra, totalProductos } }>
         {children}
     </CartContext.Provider>
 }

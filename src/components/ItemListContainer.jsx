@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Component } from "react";
 import ItemList from "./ItemList";
 import { productos } from "./Catalogo.jsx";
 import { useParams } from "react-router-dom";

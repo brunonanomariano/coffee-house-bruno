@@ -1,5 +1,5 @@
 import React from "react";
-import { Component, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
 import { productos } from "./Catalogo.jsx";
 import { useParams } from "react-router-dom";

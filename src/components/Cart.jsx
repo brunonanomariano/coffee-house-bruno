@@ -1,8 +1,25 @@
-import { Component } from "react";
+import React from "react";
+import { useContext } from "react";
+import { CartContext } from "../contexts/CartContext";
+import { Link } from "react-router-dom";
+import ItemCart from "./ItemCart";
 
 const Cart = () => {
 
-    return <>Proximamente componente cart</>
+    const { cart, totalCompra } = useContext(CartContext);
+
+    if ( cart.length ){
+        return <div className="container">
+                    { cart.map( item => <ItemCart key={item.id} producto={item} /> ) }
+                    <p className="h3">Total: ${new Intl.NumberFormat('es-MX').format(totalCompra())}</p>
+                </ div>
+    } else {
+        return <>
+            <p>No hay productos en el carrito</p>
+            <Link to={'/'}><input className="btn btn-dark mx-2" type="button" value="Buscar productos" /></Link>        
+        </>
+    }
+    
 }
 
 export default Cart;

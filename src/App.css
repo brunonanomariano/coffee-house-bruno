@@ -36,3 +36,13 @@
   left: 50%;
 
 }
+
+.tamanio_img_carrito{
+  width: 350px;
+  height: 350px;
+}
+
+.item_cart{
+  max-width: 1000px;
+  margin-left: 0rem;
+}
