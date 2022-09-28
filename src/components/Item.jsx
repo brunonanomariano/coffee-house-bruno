@@ -8,7 +8,7 @@ const Item = ( {title, price, pictureUrl, id} ) => {
     return(
         <Link to={'/item/'+ destino } style={{color: 'inherit', textDecoration: 'inherit'}} >
         <div className="card">
-            <img src={pictureUrl} className="card-img-top " alt={title} />
+            <img src={"/images/" + pictureUrl} className="card-img-top " alt={title} />
             <div className="card-body">
                 <h5 className="card-title text-center">{title}</h5>
                 <p className="card-text text-center h4"><b>${new Intl.NumberFormat('es-MX').format(price)}</b></p>

@@ -22,7 +22,7 @@ const ItemDetail = ( {productoSeleccionado} ) => {
             <div className="row">
                 <div className="col-md-6">
                     <div className="card">
-                        <img src={imagen} className="card-img-top " alt={titulo} />
+                        <img src={"/images/" + imagen } className="card-img-top " alt={titulo} />
                         <div className="card-body">
                             <h4 className="card-title text-center">{titulo}</h4>
                             <p  className="card-text text-center">{descripcion}</p>

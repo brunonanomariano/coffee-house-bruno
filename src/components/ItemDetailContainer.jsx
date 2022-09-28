@@ -1,9 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
-import { productos } from "./Catalogo.jsx";
 import { useParams } from "react-router-dom";
 import { Spinner } from "reactstrap";
+import {getFirestore, doc, getDoc} from 'firebase/firestore';
 
 const ItemDetailContainer = () => {
 
@@ -15,21 +15,13 @@ const ItemDetailContainer = () => {
     useEffect( () => {
 
         setCargando(true);
-
-        const getItem = (id) => {
-            return(productos.find( producto => producto.id === parseInt(id) ))
-        };
-      
-        const promesa = new Promise((resolve) => {
-            setTimeout( () => {
-                resolve(getItem(parseInt(id))) //Aca puedo setear por ID el item que quiera traer a detalles
-                },2000)
-        });
-
-        promesa.then( (producto) => {
-            setItem(producto);
-            setCargando(false);
-        });
+        const db = getFirestore();
+        const response = doc(db, "productos", id);
+        getDoc(response)
+            .then((producto) => {
+                setItem({id: producto.id, ...producto.data()})
+                setCargando(false);
+            });
     },[id]);
 
     if (cargando){

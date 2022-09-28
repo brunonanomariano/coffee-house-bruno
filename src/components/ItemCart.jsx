@@ -9,7 +9,7 @@ const ItemCart = ( { producto } ) => {
     return <div className="card mb-3 container item_cart" >
     <div className="row g-0">
       <div className="col-md-4">
-        <img src={producto.pictureUrl} className="rounded-start tamanio_img_carrito" alt={producto.title} />
+        <img src={"/images/" + producto.pictureUrl} className="rounded-start tamanio_img_carrito" alt={producto.title} />
       </div>
       <div className="col-md-8">
         <div className="card-body ">

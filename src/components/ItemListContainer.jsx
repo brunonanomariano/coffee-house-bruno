@@ -2,39 +2,30 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import ItemList from "./ItemList";
-import { productos } from "./Catalogo.jsx";
 import { useParams } from "react-router-dom";
 import { Spinner } from "reactstrap";
+import {getFirestore, collection, query, getDocs, where} from 'firebase/firestore';
+
 
 const ItemListContainer = ( props ) => {
 
     const [items, setItems] = useState([]);
     const {id} = useParams();
-    let array_category = [];
 
     const [cargando, setCargando] = useState(true);
 
     useEffect( () => {
-        
+
         setCargando(true);
 
-        const promesa = new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(productos);
-            },2000);
-        });
-
-        promesa.then((respuesta) => {
-            if (id){
-                array_category = respuesta.filter( productos => productos.category === id);
-                setItems(array_category);
+        const db = getFirestore();
+        const itemCollection = collection(db, 'productos');
+        const itemQuery = id ? query(itemCollection, where("category", "==", id)) : itemCollection;
+        getDocs(itemQuery)
+            .then(resp => {
+                setItems(resp.docs.map(producto => ({id: producto.id, ...producto.data()})))
                 setCargando(false);
-            } else {
-                setItems(respuesta);
-                setCargando(false);
-            }
-            
-        });
+            });
     }, [id]);
 
     //Se agrega un spinner de carga para mostrar mientras se resuelve la promesa
