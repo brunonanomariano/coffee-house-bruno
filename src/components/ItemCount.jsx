@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -6,6 +7,7 @@ function ItemCount( { stock, initial, onAdd }  ){
     const[mostrar, setMostrar] = useState(true);
 
     const [cant, setCant] = useState(1);
+    const [disponibilidad, setDisponibilidad] = useState(true);
 
     const modificarCantidad = (valor) =>{
         setCant(cant + valor);
@@ -15,6 +17,13 @@ function ItemCount( { stock, initial, onAdd }  ){
         onAdd(cant);
         setMostrar(false);
     }
+
+    useEffect( () => { //Cada vez que cargo el componente verifico si hay disponibilidad de stock 
+        if (stock === 0) {
+            setDisponibilidad(false); 
+            setMostrar(false)
+        };
+    },[]);
 
     if (mostrar){
         return(
@@ -31,7 +40,10 @@ function ItemCount( { stock, initial, onAdd }  ){
     } else {
         return(
             <div>
-                <Link className="py-2" to={'/Cart'}><input className="btn btn-dark" type="button" value="Finalizar Compra" /></Link>
+                {disponibilidad ?
+                    <Link className="py-2" to={'/Cart'}><input className="btn btn-dark" type="button" value="Finalizar Compra" /></Link>
+                    : <div><p className="h6">Producto momentaneamente sin stock</p><Link to={'/'}><input className="btn btn-dark mx-2" type="button" value="Buscar productos" /></Link></div>}
+                
             </div>
         )
     }

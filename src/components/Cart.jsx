@@ -12,6 +12,7 @@ const Cart = () => {
         return <div className="container">
                     { cart.map( item => <ItemCart key={item.id} producto={item} /> ) }
                     <p className="h3">Total: ${new Intl.NumberFormat('es-MX').format(totalCompra())}</p>
+                    <Link to={'/purchaseForm'}><input className="btn btn-dark" type="button" value="Cerrar orden de compra" /></Link>
                 </ div>
     } else {
         return <>
